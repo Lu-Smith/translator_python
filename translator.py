@@ -12,7 +12,9 @@ class Translator(QWidget):
     
   def initUI(self):
     self.setWindowTitle("Translator App")
-    self.setGeometry(100, 100, 400, 300)
+    self.setGeometry(100, 100, 400, 500)
+    
+    self.setStyleSheet("background-color: rgb(161, 115, 230);")
     
     # layout
     layout = QVBoxLayout()
@@ -22,6 +24,18 @@ class Translator(QWidget):
     self.inputText.setPlaceholderText("Enter text to translate...")
     layout.addWidget(QLabel("Input Text:"))
     layout.addWidget(self.inputText)
+    
+    self.inputText.setStyleSheet("""
+      QTextEdit {
+        background-color: #f4f4f4;
+        color: #333333;
+        font-size: 24px;
+        padding: 10px;
+        border: 1px solid #d9d9d9;
+        border-radius: 5px;
+        color: #333;
+      }
+    """)
     
     # language selection
     self.languageComboBox = QComboBox(self)
@@ -39,6 +53,17 @@ class Translator(QWidget):
     self.outputText.setReadOnly(True)
     layout.addWidget(QLabel("Translated Text:"))
     layout.addWidget(self.outputText)
+    
+    self.outputText.setStyleSheet("""
+      QTextEdit {
+          background-color: #f4f4f4;
+          color: #333333;
+          font-size: 18px;
+          padding: 10px;
+          border: 1px solid #d9d9d9;
+          border-radius: 5px;
+      }
+  """)
 
 
     self.setLayout(layout)
