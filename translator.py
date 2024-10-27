@@ -14,7 +14,10 @@ class Translator(QWidget):
     self.setWindowTitle("Translator App")
     self.setGeometry(100, 100, 400, 500)
     
-    self.setStyleSheet("background-color: rgb(54, 15, 99);")
+    self.setStyleSheet("""
+      background-color: rgb(54, 15, 99); 
+      padding: 10px;
+    """)
     
     # layout
     layout = QVBoxLayout()
@@ -24,11 +27,11 @@ class Translator(QWidget):
     self.inputText.setPlaceholderText("Enter text to translate...")
     inputLabel = QLabel("Input Text:")
     inputLabel.setStyleSheet("""
-        QLabel {
-            color: #f4f4f4;
-            font-size: 18px;
-            font-weight: bold;
-        }
+      QLabel {
+        color: #f4f4f4;
+        font-size: 18px;
+        font-weight: bold;
+      }
     """)
     layout.addWidget(inputLabel)
     layout.addWidget(self.inputText)
@@ -41,6 +44,7 @@ class Translator(QWidget):
         padding: 10px;
         border: 1px solid #d9d9d9;
         border-radius: 5px;
+        margin: 0 10px;
       }
     """)
     
@@ -49,11 +53,11 @@ class Translator(QWidget):
     self.languageComboBox.addItems(["en", "es", "fr", "de", "it"])  
     languageLabel = QLabel("Select Language:")
     languageLabel.setStyleSheet("""
-        QLabel {
-            color: #f4f4f4;
-            font-size: 14px;
-            font-weight: semi-bold;
-        }
+      QLabel {
+        color: #f4f4f4;
+        font-size: 14px;
+        font-weight: semi-bold;
+      }
     """)
     layout.addWidget(languageLabel)
     layout.addWidget(self.languageComboBox)
@@ -66,6 +70,7 @@ class Translator(QWidget):
         padding: 10px;
         border: 1px solid #d9d9d9;
         border-radius: 5px;
+        margin: 0 10px;
       }
     """)
 
@@ -83,6 +88,7 @@ class Translator(QWidget):
         padding: 10px;
         border: 1px solid rgb(9, 79, 15);
         border-radius: 25px;
+        margin: 0 10px;
       }
       QPushButton:hover {
         background-color: rgb(3, 46, 7);
@@ -95,11 +101,11 @@ class Translator(QWidget):
     self.outputText.setReadOnly(True)
     outputLabel = QLabel("Translated Text:")
     outputLabel.setStyleSheet("""
-        QLabel {
-            color: #f4f4f4;
-            font-size: 18px;
-            font-weight: bold;
-        }
+      QLabel {
+        color: #f4f4f4;
+        font-size: 18px;
+        font-weight: bold;
+      }
     """)
     layout.addWidget(outputLabel)
     layout.addWidget(self.outputText)
@@ -112,9 +118,9 @@ class Translator(QWidget):
         padding: 10px;
         border: 1px solid #d9d9d9;
         border-radius: 5px;
+        margin: 0 10px;
       }
     """)
-
 
     self.setLayout(layout)
     
