@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QWidget, QApplication, QVBoxLayout, QTextEdit,
-                             QLabel)
+                             QLabel, QComboBox)
 from deep_translator import GoogleTranslator
 
 class Translator(QWidget):
@@ -22,6 +22,14 @@ class Translator(QWidget):
     self.inputText.setPlaceholderText("Enter text to translate...")
     layout.addWidget(QLabel("Input Text:"))
     layout.addWidget(self.inputText)
+    
+    # Language selection
+    self.languageComboBox = QComboBox(self)
+    self.languageComboBox.addItems(["en", "es", "fr", "de", "it"])  
+    layout.addWidget(QLabel("Select Language:"))
+    layout.addWidget(self.languageComboBox)
+    
+    self.setLayout(layout)
     
 def main():
   app = QApplication(sys.argv)
