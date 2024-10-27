@@ -3,6 +3,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QWidget, QApplication, QVBoxLayout, QTextEdit,
                              QLabel, QComboBox, QPushButton)
 from deep_translator import GoogleTranslator
+from PyQt5.QtGui import QIcon
 
 class Translator(QWidget):
   def __init__(self):
@@ -12,6 +13,7 @@ class Translator(QWidget):
     
   def initUI(self):
     self.setWindowTitle("Translator App")
+    self.setWindowIcon(QIcon("translateIcon.png"))
     self.setGeometry(100, 100, 400, 500)
     
     self.setStyleSheet("""
@@ -33,15 +35,25 @@ class Translator(QWidget):
         border-radius: 5px;
         margin: 0 10px;
       }
+      QComboBox QAbstractItemView { /* Dropdown list styling */
+        background-color: #f4f4f4;
+        color: #333333;
+        font-size: 16px;
+        selection-background-color: rgb(17, 150, 28);
+        selection-color: #f4f4f4;
+        padding: 5px;
+        border: 1px solid #d9d9d9;
+      }
       QPushButton {
         background-color: rgb(17, 150, 28);
         color: #f4f4f4;
         font-size: 24px;
         font-weight: bold;
+        font-style: italic;
         padding: 10px;
         border: 1px solid rgb(9, 79, 15);
         border-radius: 25px;
-        margin: 0 10px;
+        margin: 10px 10px 0 10px ;
       }
       QPushButton:hover {
         background-color: rgb(3, 46, 7);
