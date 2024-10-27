@@ -44,7 +44,14 @@ class Translator(QWidget):
     self.setLayout(layout)
     
   def translate_text(self):
-    text = self.inputText.toPlainText
+    text = self.inputText.toPlainText()
+    target_language = self.languageComboBox.currentText()
+    
+    try:
+      translated_text = GoogleTranslator(target=target_language).translate(text)
+      self.outputText.setPlainText(translated_text)
+    except Exception as error:
+      self.outputText.setPlainText("Error in translation: " + str(error))
     
 def main():
   app = QApplication(sys.argv)
