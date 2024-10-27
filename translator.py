@@ -15,55 +15,16 @@ class Translator(QWidget):
     self.setGeometry(100, 100, 400, 500)
     
     self.setStyleSheet("""
-      background-color: rgb(54, 15, 99); 
-      padding: 10px;
-    """)
-    
-    # layout
-    layout = QVBoxLayout()
-    
-    # input
-    self.inputText = QTextEdit(self)
-    self.inputText.setPlaceholderText("Enter text to translate...")
-    inputLabel = QLabel("Input Text:")
-    inputLabel.setStyleSheet("""
+      QWidget {
+        background-color: rgb(54, 15, 99); 
+        padding: 10px;
+      }
       QLabel {
         color: #f4f4f4;
         font-size: 18px;
         font-weight: bold;
       }
-    """)
-    layout.addWidget(inputLabel)
-    layout.addWidget(self.inputText)
-    
-    self.inputText.setStyleSheet("""
-      QTextEdit {
-        background-color: #f4f4f4;
-        color: #333333;
-        font-size: 24px;
-        padding: 10px;
-        border: 1px solid #d9d9d9;
-        border-radius: 5px;
-        margin: 0 10px;
-      }
-    """)
-    
-    # language selection
-    self.languageComboBox = QComboBox(self)
-    self.languageComboBox.addItems(["en", "es", "fr", "de", "it"])  
-    languageLabel = QLabel("Select Language:")
-    languageLabel.setStyleSheet("""
-      QLabel {
-        color: #f4f4f4;
-        font-size: 14px;
-        font-weight: semi-bold;
-      }
-    """)
-    layout.addWidget(languageLabel)
-    layout.addWidget(self.languageComboBox)
-    
-    self.languageComboBox.setStyleSheet("""
-      QComboBox {
+      QTextEdit, QComboBox {
         background-color: #f4f4f4;
         color: #333333;
         font-size: 18px;
@@ -72,14 +33,6 @@ class Translator(QWidget):
         border-radius: 5px;
         margin: 0 10px;
       }
-    """)
-
-    # button
-    self.translateButton = QPushButton("Translate", self)
-    self.translateButton.clicked.connect(self.translate_text)
-    layout.addWidget(self.translateButton)
-    
-    self.translateButton.setStyleSheet("""
       QPushButton {
         background-color: rgb(17, 150, 28);
         color: #f4f4f4;
@@ -96,31 +49,34 @@ class Translator(QWidget):
       }
     """)
     
+    # layout
+    layout = QVBoxLayout()
+    
+    # input
+    self.inputText = QTextEdit(self)
+    self.inputText.setPlaceholderText("Enter text to translate...")
+    inputLabel = QLabel("Input Text:")
+    layout.addWidget(inputLabel)
+    layout.addWidget(self.inputText)
+    
+    # language selection
+    self.languageComboBox = QComboBox(self)
+    self.languageComboBox.addItems(["en", "es", "fr", "de", "it"])  
+    languageLabel = QLabel("Select Language:")
+    layout.addWidget(languageLabel)
+    layout.addWidget(self.languageComboBox)
+    
+    # button
+    self.translateButton = QPushButton("Translate", self)
+    self.translateButton.clicked.connect(self.translate_text)
+    layout.addWidget(self.translateButton)
+    
     # Output text
     self.outputText = QTextEdit(self)
     self.outputText.setReadOnly(True)
     outputLabel = QLabel("Translated Text:")
-    outputLabel.setStyleSheet("""
-      QLabel {
-        color: #f4f4f4;
-        font-size: 18px;
-        font-weight: bold;
-      }
-    """)
     layout.addWidget(outputLabel)
     layout.addWidget(self.outputText)
-    
-    self.outputText.setStyleSheet("""
-      QTextEdit {
-        background-color: #f4f4f4;
-        color: #333333;
-        font-size: 18px;
-        padding: 10px;
-        border: 1px solid #d9d9d9;
-        border-radius: 5px;
-        margin: 0 10px;
-      }
-    """)
 
     self.setLayout(layout)
     
