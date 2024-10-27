@@ -11,6 +11,7 @@ class Translator(QWidget):
     
   def initUI(self):
     self.setWindowTitle("Translator App")
+    self.setGeometry(100, 100, 400, 300)
 
 def main():
   app = QApplication(sys.argv)
