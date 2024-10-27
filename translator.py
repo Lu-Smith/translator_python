@@ -33,8 +33,14 @@ class Translator(QWidget):
     self.translateButton = QPushButton("Translate", self)
     self.translateButton.clicked.connect(self.translate_text)
     layout.addWidget(self.translateButton)
-
     
+    # Output text
+    self.outputText = QTextEdit(self)
+    self.outputText.setReadOnly(True)
+    layout.addWidget(QLabel("Translated Text:"))
+    layout.addWidget(self.outputText)
+
+
     self.setLayout(layout)
     
   def translate_text(self):
